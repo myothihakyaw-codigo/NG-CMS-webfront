@@ -1,0 +1,112 @@
+.root {
+  $bg: rgba(252, 252, 252, 0.75);
+  @include box($h: 7.5rem, $r: 1.6rem, $bg: $bg);
+  @include cords(fixed, $x: 4rem, $t: 4rem, $z: 2);
+  box-shadow: $shadow-header;
+  @include flex(space-between, center);
+  @include padding($x: 2rem);
+  backdrop-filter: blur(25px);
+}
+
+.menu,
+.close {
+  cursor: pointer;
+  display: none;
+}
+
+.blob {
+  display: none;
+}
+
+.list {
+  @include gap($x: 3.15vw);
+}
+
+.link {
+  cursor: pointer;
+  transition: all 0.25s $ease-in;
+  &.active {
+    @include font($weight: 700);
+  }
+}
+
+.button {
+  @include box($h: auto);
+  @include font($size: 1.6rem);
+  @include padding($y: 2rem, $x: 4rem);
+}
+
+@include screen-lg {
+  .root {
+    --space-x: 1rem;
+    @include box($h: 6rem);
+    @include cords($x: 1rem, $t: 2rem);
+  }
+
+  .logo {
+    @include box(10.75rem);
+  }
+
+  .menu,
+  .close {
+    display: block;
+  }
+
+  .close {
+    @include cords(absolute, $t: 3rem, $r: 2rem);
+  }
+
+  .list {
+    @include gap($x: 0, $y: 6rem);
+    @include box(100vw, 0, $bg: $primary);
+    @include flex(center, center, $dir: column);
+    @include cords(fixed, $x: -1rem, $y: -2rem);
+    @include overflow(hidden);
+    transition: height 0.25s $linear 0.5s;
+    .blob {
+      --s: 0;
+      animation: scale-down 0.25s $linear both;
+    }
+    .link,
+    .button {
+      --x: 2.5rem;
+      animation: fade-out 0.25s $linear both;
+    }
+  }
+
+  .open {
+    @include box($h: 100vh);
+    transition-delay: 0s;
+    .blob {
+      --s: 0;
+      animation: scale-in 0.5s $linear both;
+    }
+    .link,
+    .button {
+      --x: -5rem;
+      animation: fade-in 0.45s $linear both;
+    }
+  }
+
+  .blob {
+    display: block;
+    @include box(108vw, 112.25vw);
+    @include cords(absolute);
+    &:nth-of-type(1) {
+      @include cords($l: -85vw, $t: -25vw);
+    }
+    &:nth-of-type(2) {
+      @include cords($r: -50vw, $b: -75vw);
+    }
+  }
+
+  .link {
+    @include font(#fff, 2.4rem, $height: 3rem);
+  }
+
+  .button {
+    @include box($bg: #fff);
+    @include font($primary);
+    @include padding($x: 6rem);
+  }
+}

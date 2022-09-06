@@ -1,0 +1,77 @@
+.root {
+  @include cords(relative);
+  :global {
+    .react-datepicker-popper {
+      @include box(100%, $bg: #fff, $r: 0.5rem);
+      @include cords($z: 1);
+      @include padding(1rem);
+      @include margin($y: 0.5rem);
+      @include border($divider);
+    }
+    .react-datepicker__ {
+      &day {
+        cursor: pointer;
+        @include font($grey);
+        @include box($r: 100%);
+        transition: all 0.25s $linear;
+        &:hover {
+          @include font($primary);
+          @include box($bg: rgba($primary, 0.25));
+        }
+        &--today {
+          @include font($primary);
+        }
+        &--selected,
+        &--selected:hover {
+          @include font(#fff);
+          @include box($bg: $primary);
+        }
+
+        &--disabled,
+        &--disabled:hover {
+          cursor: not-allowed;
+          @include font(rgba($grey, 0.25) !important);
+          @include box($bg: transparent);
+        }
+
+        &--outside-month,
+        &--outside-month:hover {
+          @include font(rgba($grey, 0.75));
+        }
+      }
+      &week,
+      &day-names {
+        @include flex($justify: space-evenly);
+        > div {
+          @include font($align: center);
+          @include iflex(center, center);
+          @include box(3rem, 3rem);
+          @include margin($y: 0.5rem);
+        }
+      }
+      &day-names div {
+        font-family: 'DM Serif Display';
+        @include font($grey, $weight: 400);
+      }
+    }
+  }
+}
+
+.header {
+  @include flex(space-between, center);
+  @include padding($b: 1rem);
+  p {
+    @extend .font-serif;
+  }
+  svg {
+    cursor: pointer;
+    @include box(2rem, 2rem);
+    &.disable {
+      @include box($o: 0.5);
+    }
+  }
+}
+
+.calendarIcon {
+  cursor: pointer;
+}

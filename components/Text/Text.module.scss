@@ -1,0 +1,111 @@
+.root {
+  --color: #{$grey};
+  @include font(var(--color), $weight: 400);
+}
+
+.bold {
+  @include font($weight: 800);
+}
+
+.sm {
+  @include font($size: 0.86vw, $height: 0.86vw);
+}
+
+.sm-2x {
+  @include font($size: 0.86vw, $height: 1.07vw);
+}
+
+.md {
+  @include font($size: 1vw, $height: 1vw);
+}
+
+.md-2x {
+  @include font($size: 1vw, $height: 1.5vw);
+}
+
+.lg {
+  @include font($size: 1.14vw, $height: 1.14vw);
+}
+
+.lg-2x {
+  @include font($size: 1.14vw, $height: 1.71vw);
+}
+
+.xl {
+  @include font($size: 1.43vw, $height: 1.43vw);
+}
+
+.xxl {
+  @include font($size: 2vw, $height: 2vw);
+}
+
+.xxl-2x {
+  @include font($size: 2vw, $height: 2.5vw);
+}
+
+@include screen-md {
+  .md {
+    @include font($size: 3.2vw, $height: 3.2vw);
+  }
+  .md-2x {
+    @include font($size: 3.2vw, $height: 4.8vw);
+  }
+  .lg {
+    @include font($size: 3.73vw, $height: 3.73vw);
+  }
+  .lg-2x {
+    @include font($size: 3.73vw, $height: 5.6vw);
+  }
+
+  .xxl {
+    @include font($size: 6.4vw, $height: 6.4vw);
+  }
+  .xxl-2x {
+    @include font($size: 6.4vw, $height: 8vw);
+  }
+}
+
+// @include screen-xl {
+//   .sm {
+//     @include font($size: 1.2rem, $height: 1.2rem);
+//   }
+//   .sm-2x {
+//     @include font($size: 1.2rem, $height: 1.5rem);
+//   }
+//   .md {
+//     @include font($size: 1.4rem, $height: 1.4rem);
+//   }
+//   .md-2x {
+//     @include font($size: 1.4rem, $height: 2.1rem);
+//   }
+//   .lg {
+//     @include font($size: 1.6rem, $height: 1.6rem);
+//   }
+//   .lg-2x {
+//     @include font($size: 1.6rem, $height: 2.4rem);
+//   }
+//   .xl {
+//     @include font($size: 2rem, $height: 2rem);
+//   }
+//   .xxl {
+//     @include font($size: 2.8rem, $height: 2.8rem);
+//   }
+//   .xxl-2x {
+//     @include font($size: 2.8rem, $height: 3.5rem);
+//   }
+// }
+
+// @include screen-md {
+//   .lg {
+//     @include font($size: 1.4rem, $height: 1.4rem);
+//   }
+//   .lg-2x {
+//     @include font($size: 1.4rem, $height: 2.1rem);
+//   }
+//   .xxl {
+//     @include font($size: 2.4rem, $height: 2.4rem);
+//   }
+//   .xxl-2x {
+//     @include font($size: 2.4rem, $height: 3rem);
+//   }
+// }

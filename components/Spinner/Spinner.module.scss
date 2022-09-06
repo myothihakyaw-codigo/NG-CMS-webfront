@@ -1,0 +1,19 @@
+.root {
+  --size: 2rem;
+  --color: #{$primary};
+  --border: calc(var(--size) * 0.1);
+
+  display: block;
+  @include box(var(--size), var(--size), 50%);
+  @include border(var(--border) solid rgba(#fff, 0.25), $t: var(--border) solid var(--color));
+  animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

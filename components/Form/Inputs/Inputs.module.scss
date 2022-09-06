@@ -1,0 +1,44 @@
+.addon {
+  color: $grey;
+  cursor: pointer;
+  transition: all 5s linear;
+}
+
+.code {
+  p {
+    cursor: pointer;
+    @include box(6rem);
+    @include font($grey);
+    @include flex(space-between, center);
+  }
+  svg {
+    transition: all 0.25s $linear;
+  }
+}
+
+.countries {
+  @include box(22rem, 0, 1.2rem, #fff);
+  @include cords(absolute !important, $t: 7rem, $z: 1);
+  box-shadow: $shadow-hover;
+  transition: all 0.25s $linear;
+  .list {
+    @include padding($y: 0.75rem);
+  }
+  .item {
+    cursor: pointer;
+    @include box(100%);
+    @include flex(space-between);
+    @include font($grey, 1.2rem);
+    @include padding($x: 2rem, $y: 0.75rem);
+  }
+}
+
+.open {
+  svg {
+    @include font($primary);
+    transform: rotate(180deg);
+  }
+  .countries {
+    @include box($h: 22rem);
+  }
+}

@@ -1,0 +1,80 @@
+.root {
+  --color: #{$primary};
+  @include box(100%, 4vw, 50vw);
+  @include flex(center, center);
+  @include font(#fff, 1.15vw, 700);
+  @include gap($x: 1rem);
+  @include padding($x: 2rem);
+  @include border(1px solid);
+  @include cords(relative);
+  transition: all 0.25s $ease-in-out;
+}
+
+.inline {
+  @include box(auto);
+  @include iflex();
+  @include padding($x: 2.75vw);
+}
+
+.text {
+  @include iflex();
+  @include box(auto, auto);
+  @include padding(0);
+  @include font(var(--color), $weight: inherit);
+  border-color: transparent !important;
+  background-color: transparent !important;
+}
+
+.primary {
+  @include apply(var(--color), background-color, border-color);
+  &:hover {
+    --color: #fff;
+    @include font($primary);
+    box-shadow: $shadow-hover;
+  }
+}
+
+.secondary {
+  color: var(--color);
+  @include box($bg: #fff);
+  border-color: transparent;
+  &:hover {
+    --color: #fff;
+    @include box($bg: $primary);
+    &::after {
+      content: none;
+    }
+  }
+  &::after {
+    content: ' ';
+    background: $primary-gradient;
+    border-radius: inherit;
+    @include cords(absolute, $x: 0, $y: 0, $z: -1);
+    @include margin(-2px);
+  }
+}
+
+.transparent {
+  color: var(--color);
+  border-color: transparent;
+}
+
+.loading {
+  cursor: wait;
+}
+
+.disable {
+  color: $grey;
+  cursor: not-allowed;
+  @include apply($grey, background-color, border-color);
+}
+
+@include screen-xl {
+  .root {
+    @include box($h: 5.6rem);
+    @include font($size: 1.6rem);
+  }
+  .inline {
+    @include padding($x: 6rem);
+  }
+}

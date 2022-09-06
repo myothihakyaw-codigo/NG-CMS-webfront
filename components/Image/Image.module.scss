@@ -1,0 +1,12 @@
+.root {
+  @include box($o: 0);
+  @include iflex(center, center); // If not iflex root is 2px taller than height prop
+  transition: opacity 0.5s linear;
+  > span:first-child {
+    @include overflow(visible !important);
+  }
+}
+
+.loaded {
+  @include box($o: 1);
+}

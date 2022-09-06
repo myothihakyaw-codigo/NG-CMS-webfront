@@ -1,0 +1,15 @@
+.root {
+  @include box(100%);
+}
+
+.list {
+  @include box(100%);
+}
+
+.trigger {
+  @include font($grey, 1.4rem, 600, $transform: uppercase);
+  transition: $transition;
+  &[data-state='active'] {
+    @include font($primary);
+  }
+}

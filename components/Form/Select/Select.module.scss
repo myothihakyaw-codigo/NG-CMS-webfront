@@ -1,0 +1,78 @@
+.root :global .react-select__ {
+  input:focus {
+    outline: none !important;
+  }
+  &control {
+    @include box(100%, $bg: unset);
+    @include height(100%, $min: unset);
+    border: none;
+    box-shadow: none;
+  }
+  &placeholder {
+    @include box($o: 0);
+  }
+
+  &value-container {
+    @include padding(0);
+    @include box($h: 100%);
+    cursor: text;
+    * {
+      color: inherit;
+    }
+  }
+
+  &input-container {
+    @include margin(0);
+  }
+
+  &single-value {
+    @include box($h: 100%);
+    @include margin(0);
+    @include flex($align: center);
+  }
+
+  &indicators {
+    display: none;
+  }
+
+  &menu {
+    @include font($size: 1.4rem);
+    @include box(calc(100% + 6.5rem));
+    @include margin($l: -1.5rem, $t: 1.5rem);
+    &-list {
+      @include gap($y: 0.25rem);
+      @include padding(0.5rem);
+    }
+  }
+
+  &option {
+    cursor: pointer;
+    @include box($r: 0.5rem);
+
+    &:hover,
+    &--is-focused {
+    }
+    &--is-selected,
+    &--is-selected:hover {
+      @include box($bg: $primary);
+      @include font(#fff);
+    }
+  }
+}
+
+.normal :global .react-select__ {
+  &menu {
+    @include margin($t: 2rem);
+  }
+  &placeholder {
+    @include box($o: 1);
+    @include font($grey);
+  }
+}
+
+.dropdown {
+  fill: $grey;
+  &.disable {
+    fill: $grey;
+  }
+}

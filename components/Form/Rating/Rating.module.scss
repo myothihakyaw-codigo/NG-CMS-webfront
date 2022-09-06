@@ -1,0 +1,16 @@
+.list {
+  @include flex();
+  @include gap($x: 0.25rem);
+}
+
+.star {
+  cursor: pointer;
+  @include box(1.5rem, 1.5rem);
+  fill: transparent;
+  stroke: $grey;
+  transition: all 0.25s;
+  &.active {
+    fill: yellow;
+    stroke: yellow;
+  }
+}

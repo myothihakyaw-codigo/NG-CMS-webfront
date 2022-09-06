@@ -1,0 +1,35 @@
+.fieldset {
+  input,
+  button {
+    @include cords(absolute, $t: -100vh, $l: -100vw);
+  }
+  &:focus-within {
+    .focus {
+      border-color: $primary;
+      &::after {
+        content: ' ';
+        @include box(0.15rem, 2.5rem, $bg: $primary);
+        animation: blink 1s step-end infinite;
+      }
+    }
+  }
+}
+
+.list {
+  @include flex();
+  @include gap($x: 1.5rem);
+}
+
+.item {
+  @include iflex(center, center);
+  @include box(5.6rem, 5.6rem, 0.8rem);
+  @include font($size: 2.8rem, $weight: 500);
+  @include border($divider);
+  @include screen-sm {
+    @include box(4.2rem, 4.5rem);
+    @include font($size: 2rem);
+  }
+  &.error {
+    @include font($error);
+  }
+}

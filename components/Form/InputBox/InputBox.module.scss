@@ -1,0 +1,66 @@
+$transition: all 0.25s $ease-in-out;
+
+.root {
+  @include font(var(--color), 1.6rem, 400, 2.4rem);
+  @include box(100%, 6rem, $bg: #fff);
+  @include flex($align: stretch);
+  @include border($b: 1px solid var(--color)); // --border inherited from Fieldset
+  @include cords(relative);
+  transition: $transition;
+}
+
+.float {
+  :global {
+    .label {
+      @include font(var(--color));
+    }
+    .date,
+    .input,
+    .phone,
+    .select,
+    .textarea {
+      @include box($h: 0, $o: 0);
+      @include font($height: 2.4rem);
+      @include overflow(hidden);
+    }
+    .phone {
+      @include flex();
+      @include gap($x: 0.75rem);
+    }
+  }
+  &:not(.empty),
+  &:focus-within {
+    :global {
+      .label {
+        @include margin($t: 0rem);
+        @include font($size: 1.2rem);
+      }
+      .date,
+      .input,
+      .phone,
+      .select,
+      .textarea {
+        @include box($h: 2.5rem, $o: 1);
+      }
+    }
+  }
+}
+
+.main {
+  flex: 1;
+  @include flex($dir: column, $justify: center);
+  > * {
+    transition: $transition;
+  }
+}
+
+.addon {
+  font-style: normal;
+  @include iflex(center, center);
+  &.start {
+    @include margin($l: 1.5rem);
+  }
+  &.end {
+    @include margin($r: 1.5rem);
+  }
+}

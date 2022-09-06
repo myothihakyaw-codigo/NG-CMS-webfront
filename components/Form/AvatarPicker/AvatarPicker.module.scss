@@ -1,0 +1,13 @@
+.root {
+  cursor: pointer;
+  @include iflex();
+  @include cords(relative);
+}
+
+.image {
+  @include flex(center, center);
+  @include box(10rem, 10rem, 50%);
+  @include margin($x: auto);
+  @include cords(relative);
+  @include overflow(hidden);
+}

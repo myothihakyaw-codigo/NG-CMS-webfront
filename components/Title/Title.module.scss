@@ -1,0 +1,130 @@
+.root {
+  --color: #{$primary};
+  @include font(var(--color), $weight: 800);
+}
+
+.xs {
+  @include font($size: 1.14vw, $height: 1.14vw);
+}
+
+.sm {
+  @include font($size: 1.29vw, $height: 1.29vw);
+}
+
+.md {
+  @include font($size: 1.43vw, $height: 1.43vw);
+}
+
+.md-2x {
+  @include font($size: 1.43vw, $height: 1.79vw);
+}
+
+.lg {
+  @include font($size: 1.71vw, $height: 1.71vw);
+}
+
+.lg-2x {
+  @include font($size: 1.71vw, $height: 2.14vw);
+}
+
+.xl {
+  @include font($size: 2.29vw, $height: 2.29vw);
+}
+
+.xl-2x {
+  @include font($size: 2.29vw, $height: 2.86vw);
+}
+
+.xxl {
+  @include font($size: 2.86vw, $height: 2.86vw);
+}
+
+@include screen-md {
+  .xs {
+    @include font($size: 3.2vw, $height: 3.2vw);
+  }
+  .sm {
+    @include font($size: 4.27vw, $height: 4.27vw);
+  }
+  .md {
+    @include font($size: 4.27vw, $height: 4.27vw);
+  }
+  .md-2x {
+    @include font($size: 4.27vw, $height: 4.8vw);
+  }
+  .lg {
+    @include font($size: 5.33vw, $height: 5.33vw);
+  }
+  .lg-2x {
+    @include font($size: 5.33vw, $height: 5.87vw);
+  }
+  .xl {
+    @include font($size: 6.93vw, $height: 6.93vw);
+  }
+  .xl-2x {
+    @include font($size: 6.93vw, $height: 8.53vw);
+  }
+  .xxl {
+    @include font($size: 6.93vw, $height: 6.93vw);
+  }
+}
+
+// @include screen-xl {
+//   .xs {
+//     @include font($size: 1.6rem, $height: 1.6rem);
+//   }
+//   .sm {
+//     @include font($size: 1.8rem, $height: 1.8rem);
+//   }
+//   .md {
+//     @include font($size: 2rem, $height: 2rem);
+//   }
+//   .md-2x {
+//     @include font($size: 2rem, $height: 2.5rem);
+//   }
+//   .lg {
+//     @include font($size: 2.4rem, $height: 2.4rem);
+//   }
+//   .lg-2x {
+//     @include font($size: 2.4rem, $height: 3rem);
+//   }
+//   .xl {
+//     @include font($size: 3.2rem, $height: 3.2rem);
+//   }
+//   .xl-2x {
+//     @include font($size: 3.2rem, $height: 4rem);
+//   }
+//   .xxl {
+//     @include font($size: 4rem, $height: 4rem);
+//   }
+// }
+
+// @include screen-md {
+//   .xs {
+//     @include font($size: 1.2rem, $height: 1.2rem);
+//   }
+//   .sm {
+//     @include font($size: 1.6rem, $height: 1.6rem);
+//   }
+//   .md {
+//     @include font($size: 1.6rem, $height: 1.6rem);
+//   }
+//   .md-2x {
+//     @include font($size: 1.6rem, $height: 1.8rem);
+//   }
+//   .lg {
+//     @include font($size: 2rem, $height: 2rem);
+//   }
+//   .lg-2x {
+//     @include font($size: 2rem, $height: 2.2rem);
+//   }
+//   .xl {
+//     @include font($size: 2.6rem, $height: 2.6rem);
+//   }
+//   .xl-2x {
+//     @include font($size: 2.6rem, $height: 3.25rem);
+//   }
+//   .xxl {
+//     @include font($size: 2.6rem, $height: 2.6rem);
+//   }
+// }

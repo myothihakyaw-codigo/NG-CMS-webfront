@@ -1,0 +1,51 @@
+.main {
+  @extend .frame;
+  @include box(100vw);
+  @include padding(0);
+}
+
+.section {
+  @include cords(relative);
+}
+
+.hero,
+.mission {
+  @include box(100vw);
+  @include font($align: center);
+  @include flex($align: center, $dir: column);
+  @include space($y: '4.85vw 1.25vw');
+  p {
+    @include box(60vw);
+  }
+}
+
+.hero {
+  @include padding($t: 15.75vw);
+  .image {
+    @include width(46.5vw);
+  }
+}
+
+.mission {
+  @include padding($t: 15.75vw);
+  .image {
+    @include width(34.75vw);
+  }
+}
+
+.testimonial {
+  @include box($h: 100vh);
+}
+
+.line {
+  @include width(81.6vw);
+  @include cords(absolute, $t: 0, $z: -1, $r: 5vw);
+}
+
+.title {
+  @include font($grey, 3.35vw, 800, 4.15vw);
+}
+
+.description {
+  @include font($grey, 1.35vw, $height: 2vw);
+}

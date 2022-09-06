@@ -1,0 +1,10 @@
+.root {
+  @include box(100%, 5rem, $r: 0.5rem, $bg: $concrete);
+  animation: pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  50% {
+    @include box($bg: #f6f8f2);
+  }
+}

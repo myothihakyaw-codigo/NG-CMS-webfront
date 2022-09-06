@@ -1,0 +1,66 @@
+@import 'modern-normalize/modern-normalize.css';
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.4rem;
+  @include screen-sm {
+    font-size: 1.2rem;
+  }
+}
+
+* {
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+  text-align: inherit;
+  caret-color: $primary;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+::selection {
+  color: $primary;
+  background-color: rgba($primary, 0.25);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+input {
+  @include box(100%, $bg: transparent);
+  @include font($weight: inherit);
+  &:focus {
+    outline: none;
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+}
+
+textarea {
+  resize: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+button {
+  cursor: pointer;
+  color: inherit;
+  font-weight: inherit;
+  background-color: transparent;
+  &:focus {
+    outline: none;
+  }
+}

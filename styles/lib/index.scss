@@ -1,0 +1,14 @@
+@import './vars.scss';
+@import './fonts.scss';
+@import './screens.scss';
+@import './keyframes.scss';
+@import './funcs.scss';
+@import './utils.scss';
+
+.frame {
+  @include box(80vw);
+  @include margin($x: auto);
+  @include screen-lg {
+    @include box(90vw);
+  }
+}

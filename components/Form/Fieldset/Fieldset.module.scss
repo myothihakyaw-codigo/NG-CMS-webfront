@@ -1,0 +1,21 @@
+.root {
+  flex: 1;
+  --color: #{$grey};
+  &:focus-within {
+    --color: #{$primary};
+  }
+}
+
+.error,
+.error:focus-within {
+  --color: #{$error};
+  .message {
+    @include font($error, 1.2rem, 600);
+  }
+}
+
+.message {
+  @include font($grey, 1.4rem, 500);
+  @include margin($b: 1rem);
+  display: block;
+}

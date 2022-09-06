@@ -1,0 +1,39 @@
+.root {
+  @include overflow(hidden);
+}
+.viewport {
+  @include box(100%, 100%);
+}
+
+.scrollbar {
+  user-select: none;
+  touch-action: none;
+  .scrollthumb {
+    cursor: pointer;
+    @include box($bg: #d9d9d9, $r: 4px, $o: 0);
+    @include cords(relative, $z: 20);
+    transition: opacity 0.25s linear 0.5s;
+  }
+}
+
+.vertical .scrollthumb {
+  @include box(0.2rem !important);
+  @include margin($r: 0.5rem);
+}
+
+.horizontal .scrollthumb {
+  @include box($h: 0.2rem !important);
+  @include margin($b: 0.5rem);
+}
+
+.show,
+.scrollbar:hover {
+  .scrollthumb {
+    @include box($o: 1);
+    transition-delay: 0s;
+  }
+}
+
+.headless {
+  @include box($o: 1);
+}

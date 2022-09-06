@@ -1,0 +1,163 @@
+@mixin font(
+  $color: null,
+  $size: null,
+  $weight: null,
+  $height: null,
+  $align: null,
+  $transform: null,
+  $decoration: null
+) {
+  color: $color;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $height;
+  text-align: $align;
+  text-transform: $transform;
+  text-decoration: $decoration;
+}
+
+@mixin background($img: null, $size: null, $position: null, $repeat: null) {
+  background-image: $img;
+  background-repeat: $repeat;
+  background-position: $position;
+  background-size: $size;
+}
+
+@mixin flex($justify: null, $align: null, $dir: null, $wrap: null, $gap: null) {
+  display: flex;
+  flex-direction: $dir;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  gap: $gap;
+  align-items: $align;
+}
+
+@mixin iflex($justify: null, $align: null, $dir: null, $wrap: null) {
+  display: inline-flex;
+  flex-direction: $dir;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin box($w: null, $h: null, $r: null, $bg: null, $o: null) {
+  width: $w;
+  height: $h;
+  opacity: $o;
+  border-radius: $r;
+  background-color: $bg;
+}
+
+@mixin width($val: null, $max: null, $min: null) {
+  width: $val;
+  max-width: $max;
+  min-width: $min;
+}
+
+@mixin height($val: null, $max: null, $min: null) {
+  height: $val;
+  max-height: $max;
+  min-height: $min;
+}
+
+@mixin gap($x: null, $y: null) {
+  > :not(:last-child) {
+    margin-right: $x;
+  }
+  > :not(:last-child) {
+    margin-bottom: $y;
+  }
+}
+
+@mixin border($val: null, $x: null, $y: null, $t: null, $l: null, $r: null, $b: null) {
+  border: $val;
+  border-top: $t or $y;
+  border-left: $l or $x;
+  border-right: $r or $x;
+  border-bottom: $b or $y;
+}
+
+@mixin radius($t: null, $b: null, $l: null, $r: null) {
+  border-top-left-radius: $l or $t;
+  border-bottom-left-radius: $l or $b;
+  border-top-right-radius: $r or $t;
+  border-bottom-right-radius: $r or $b;
+}
+
+@mixin divider($x: null, $y: null) {
+  > :not(:last-child) {
+    border-right: $x;
+  }
+  > :not(:last-child) {
+    border-bottom: $y;
+  }
+}
+
+@mixin space($x: false, $y: false) {
+  @if $x {
+    $space-x: split($x, ' ');
+    @for $i from 0 to length($space-x) {
+      > :nth-child(#{$i + 1}) {
+        margin-right: #{nth($space-x, $i + 1)};
+      }
+    }
+  }
+
+  @if $y {
+    $space-y: split($y, ' ');
+    @for $i from 0 to length($space-y) {
+      > :nth-child(#{$i + 1}) {
+        margin-bottom: #{nth($space-y, $i + 1)};
+      }
+    }
+  }
+}
+
+@mixin margin($val: null, $x: null, $y: null, $t: null, $l: null, $r: null, $b: null) {
+  margin: $val;
+  margin-left: $l or $x;
+  margin-right: $r or $x;
+  margin-top: $t or $y;
+  margin-bottom: $b or $y;
+}
+
+@mixin padding($val: null, $x: null, $y: null, $t: null, $l: null, $r: null, $b: null) {
+  padding: $val;
+  padding-left: $l or $x;
+  padding-right: $r or $x;
+  padding-top: $t or $y;
+  padding-bottom: $b or $y;
+}
+
+@mixin cords($type: null, $val: null, $x: null, $y: null, $t: null, $l: null, $r: null, $b: null, $z: null) {
+  top: $val or $t or $y;
+  left: $val or $l or $x;
+  right: $val or $r or $x;
+  bottom: $val or $b or $y;
+  z-index: $z;
+  position: $type;
+}
+
+@mixin ring($width, $color, $offset-width: 0, $offset-color: #fff) {
+  $ring: 0 0 0 $width + $offset-width $color;
+  $offset: 0 0 0 $offset-width $offset-color;
+  box-shadow: $offset, $ring;
+}
+
+@mixin overflow($val: null, $x: null, $y: null) {
+  overflow: $val;
+  overflow-x: $x;
+  overflow-y: $y;
+}
+
+@mixin let($vars) {
+  @each $name, $value in $vars {
+    --#{$name}: #{$value};
+  }
+}
+
+@mixin apply($value, $names...) {
+  @for $i from 0 to length($names) {
+    #{nth($names, $i + 1)}: $value;
+  }
+}

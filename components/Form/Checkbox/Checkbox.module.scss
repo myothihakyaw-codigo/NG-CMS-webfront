@@ -1,0 +1,46 @@
+.list {
+  @include flex();
+  @include margin(-0.25rem);
+  user-select: none;
+}
+
+.item {
+  @include iflex();
+  @include gap($x: 1rem);
+  @include margin(0.25rem);
+  cursor: pointer;
+}
+
+.label {
+  @include margin($t: 0.25rem);
+}
+
+.center {
+  @include iflex($align: center);
+  .icon {
+    @include margin($t: 0);
+  }
+}
+
+.icon {
+  @include iflex(center, center);
+  @include box(2rem, 2rem, 0.5rem);
+  @include margin($t: 0.325rem);
+  @include cords(relative);
+  @include border(1px solid $grey);
+  flex-shrink: 0;
+  transition: all 0.25s;
+  svg {
+    @include cords(absolute);
+  }
+  &.round {
+    @include box($r: 1rem);
+  }
+}
+
+.item[data-state='checked'] {
+  .icon {
+    @include box($bg: $primary);
+    @include border(1rem solid $primary);
+  }
+}

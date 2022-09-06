@@ -1,0 +1,12 @@
+.root {
+  opacity: 0;
+  :global {
+    .fade-in {
+      @include box($o: 0);
+    }
+  }
+}
+
+.show {
+  @include box($o: 1);
+}

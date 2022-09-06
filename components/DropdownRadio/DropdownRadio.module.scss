@@ -1,0 +1,55 @@
+.root {
+  @include box(100%, $bg: $grey-100, $r: 0.8vw);
+  @include height($max: 3.75vw);
+  @include overflow(hidden);
+  box-shadow: $shadow;
+  transition: all 0.25s $linear;
+  &.open {
+    @include height($max: 100vw);
+    box-shadow: $shadow-hover;
+  }
+}
+
+.icon {
+  @include box(1vw, 1vw);
+  transition: transform 0.25s $linear;
+  &.upward {
+    transform: rotate(180deg);
+  }
+}
+
+.trigger {
+  cursor: pointer;
+  @include flex(space-between, center);
+  @include padding($x: 1.75vw, $y: 1.4vw);
+  span {
+    @include font($primary);
+  }
+}
+
+.content {
+  @include padding($y: 0.65vw);
+  @include border($t: 0.5px solid rgba($border, 0.4));
+  li {
+    cursor: pointer;
+    @include padding($x: 1.75vw, $y: 1.05vw);
+  }
+}
+
+@include screen-md {
+  .root {
+    @include box($r: 3.2vw);
+    @include height($max: 14vw);
+  }
+  .icon {
+    @include box(3.75vw, 3.75vw);
+  }
+  .trigger {
+    @include padding($x: 6.65vw, $y: 5.35vw);
+  }
+  .content {
+    li {
+      @include padding($x: 6.65vw, $y: 4vw);
+    }
+  }
+}

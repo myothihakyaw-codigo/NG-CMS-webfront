@@ -1,0 +1,66 @@
+.root {
+  @include flex(flex-end);
+  @include box(100vw, 100%);
+  @include cords(fixed, $r: -100vw, $y: 0, $z: 2);
+  transition: all 0.5s $linear;
+}
+
+.open {
+  @include cords($r: 0);
+  .form {
+    box-shadow: $shadow-sideform;
+  }
+}
+
+.form {
+  @include box($h: 100%, $bg: #fff);
+  @include width(40vw, $min: 59rem);
+  @include flex($dir: column);
+  @include cords(relative);
+  @include overflow($y: auto);
+}
+
+.anime {
+  float: right;
+  @include box(60%);
+}
+
+.close {
+  cursor: pointer;
+  @include cords(absolute, $t: 3rem, $r: 3rem);
+}
+
+.content {
+  --y: 5rem;
+  @include space($y: '1.6rem 2.8rem 2rem 2rem 7rem 10rem');
+  @include margin(6rem, $t: -6rem);
+  &.fade-in {
+    animation: fade-in 0.5s $linear 0.25s both;
+  }
+  &.fade-out {
+    animation: fade-out 0.25s $linear both;
+  }
+  .box {
+    @include flex();
+    @include gap($x: 3rem);
+  }
+
+  .submit {
+    float: right;
+    @include padding($x: 6rem);
+  }
+}
+
+@include screen-md {
+  .form {
+    @include width(100vw, $min: 0);
+  }
+  .content {
+    @include space($y: '1.2rem 5rem 2rem 2rem 5rem 4rem');
+    @include margin($x: 2rem);
+    .box {
+      display: block;
+      @include gap($x: 0, $y: 2rem);
+    }
+  }
+}

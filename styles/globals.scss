@@ -1,0 +1,22 @@
+@import 'normalize';
+
+:root {
+  --s: 1;
+  --o: 0;
+  --x: 0;
+  --y: 0;
+  --w: none;
+  --h: none;
+}
+
+body {
+  @extend .font-sans;
+  @include box(100vw, 100vh);
+  @include overflow(hidden);
+}
+
+main {
+  @include box($h: 100vh);
+  @include padding($t: 3rem);
+  @include overflow(auto);
+}

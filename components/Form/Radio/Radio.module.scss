@@ -1,0 +1,25 @@
+.list {
+  @include flex();
+  @include gap($x: 4rem, $y: -1.25rem);
+  flex-wrap: wrap;
+}
+
+.item {
+  @include iflex($align: center);
+  @include gap($x: 0.8rem);
+  @include padding($y: 1.25rem);
+  cursor: pointer;
+}
+
+.icon {
+  @include box(2rem, 2rem, 50%);
+  @include border(1px solid $placeholder);
+
+  transition: border 0.25s;
+}
+
+.item[data-state='checked'] {
+  .icon {
+    @include border(6px solid $grey);
+  }
+}
