@@ -7,6 +7,14 @@ const nextConfig = {
   sassOptions: { includePaths: [path.join(__dirname, 'styles')], prependData: `@import "styles/lib";` },
   experimental: { newNextLinkBehavior: true },
   optimizeFonts: false,
+  async rewrites() {
+    return [
+      {
+        source: '/dashboard',
+        destination: '/',
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig

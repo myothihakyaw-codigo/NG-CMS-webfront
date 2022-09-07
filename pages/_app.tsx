@@ -1,11 +1,10 @@
-import ContactForm from 'layouts/ContactForm'
-import Footer from 'layouts/Footer'
-import Header from 'layouts/Header'
-import Script from 'next/script'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { RecoilRoot } from 'recoil'
 import 'styles/globals.scss'
+import { ChakraProvider, Flex, HStack, VStack, StackDivider } from '@chakra-ui/react'
+import MainPanel from '../layouts/MainPanel/MainPanel'
+import Header from '../layouts/Header/Header'
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { keepPreviousData: true, refetchOnWindowFocus: false } },
@@ -14,13 +13,16 @@ const queryClient = new QueryClient({
 export default function App({ Component, pageProps }: any) {
   return (
     <>
-      <Script src="https://cdn.checkout.com/js/framesv2.min.js"></Script>
       <QueryClientProvider client={queryClient}>
         <RecoilRoot>
-          <Header />
-          <ContactForm />
-          <Component {...pageProps} />
-          {/* <Footer /> */}
+          <ChakraProvider>
+            <VStack height={'100vh'}>
+              <Header />
+              <MainPanel>
+                <Component {...pageProps} />
+              </MainPanel>
+            </VStack>
+          </ChakraProvider>
         </RecoilRoot>
         <ReactQueryDevtools />
       </QueryClientProvider>

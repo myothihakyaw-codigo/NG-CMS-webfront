@@ -1,4 +1,4 @@
-// import * as $Checkbox from '@radix-ui/react-checkbox'
+import * as $Checkbox from '@radix-ui/react-checkbox'
 import Button from 'components/Button'
 import Text from 'components/Text'
 import { ReactNode } from 'react'

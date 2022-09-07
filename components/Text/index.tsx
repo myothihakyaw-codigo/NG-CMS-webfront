@@ -9,7 +9,7 @@ type Props = Omit<HTMLProps<HTMLElement>, 'size'> & {
   color?: string
 }
 
-export default function Text({ as = 'p', size = 'sm', bold, color, style, children, className, ...rest }: Props) {
+export default function Text({ as = 'p', size = 'md', bold, color, style, children, className, ...rest }: Props) {
   return createElement(
     as,
     {
