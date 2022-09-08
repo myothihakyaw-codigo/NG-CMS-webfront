@@ -2,6 +2,7 @@ import React from 'react'
 interface LogoType {
   width?: string
   height?: string
+  scale?: number
 }
 
 export const CMSLogo: React.FC<LogoType> = ({ width, height }) => (
@@ -19,10 +20,13 @@ export const CMSLogo: React.FC<LogoType> = ({ width, height }) => (
   </svg>
 )
 
-export const NeuroGleeLogo: React.FC<LogoType> = ({ width, height }) => (
+export const NeuroGleeLogo: React.FC<LogoType> = ({ scale = 1 }) => (
   <svg
-    width={width ? width : '129'}
-    height={height ? height : '50'}
+    width={'100%'}
+    style={{
+      transform: `scale(${scale})`,
+    }}
+    height={'100%'}
     viewBox="0 0 129 34"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

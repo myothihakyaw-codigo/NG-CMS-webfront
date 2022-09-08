@@ -1,8 +1,8 @@
 import React from 'react'
-import Text from 'components/Text'
+import DashBoard from '../views/Dashboard/Dashboard'
 
-const Dashboard = ({}) => {
-  return <Text>This is Dashboards</Text>
+const AdminDashBoard = ({}) => {
+  return <DashBoard />
 }
 
-export default Dashboard
+export default AdminDashBoard

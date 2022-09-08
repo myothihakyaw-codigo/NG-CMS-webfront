@@ -8,11 +8,15 @@ interface IProps {
   children: ReactNode
 }
 
+/**
+ * Need to set overflow: hidden for child container to be scrollable and also need to set height property in child container
+ */
+
 const MainPanel: React.FC<IProps> = ({ children }) => {
   return (
-    <HStack width={'100%'} marginTop="0px !important">
+    <HStack alignItems={'flex-start'} width={'100%'} marginTop="0px !important" overflow={'hidden'}>
       <SideMenu />
-      <Box height={'100%'} width={'100%'} padding={'35px 47px'}>
+      <Box width={'100%'} height="100%" overflow="scroll">
         {children}
       </Box>
     </HStack>

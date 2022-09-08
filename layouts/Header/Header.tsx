@@ -10,27 +10,40 @@ import {
   MenuButton,
   IconButton,
   MenuDivider,
+  useMediaQuery,
+  useBreakpointValue,
+  useBreakpoint,
 } from '@chakra-ui/react'
+import Text from '../../components/Typography/Text'
 import { CMSLogo, NeuroGleeLogo, DownArrowSVG } from 'icons/HeaderIcons'
-import Text from 'components/Text'
+import { useEffect, useState } from 'react'
+import { useViewportSize } from '@mantine/hooks'
 
 const Header: React.FC = () => {
+  const [isSmallerThan1360] = useMediaQuery(`(max-width: 1400px)`)
+  const [sideMenuWidth, setSideMenuWidth] = useState('17vw')
   return (
     <Flex direction="row" alignItems="center" bgColor="#fff" borderBottom={'0.5px solid #E0E0E0'}>
-      <Box padding="25px 21px" bgColor="#F1F1F1" width="17vw">
+      <Box padding="25px 30px" bgColor="#F1F1F1" width={`17vw`}>
         <HStack
           width={'100%'}
           height={'60px'}
           spacing={10}
           divider={<StackDivider borderColor="gray.300" borderEndWidth={1} />}
         >
-          <NeuroGleeLogo />
-          <CMSLogo width="70px" height="50px" />
+          <Box minWidth={'100px'}>
+            <NeuroGleeLogo />
+          </Box>
+          <Box minWidth={'40px'}>
+            <CMSLogo width="100%" height="50px" />
+          </Box>
         </HStack>
       </Box>
       <Flex justifyContent={'flex-end'} alignItems="center" width="83vw" height="100%" paddingRight={'70px'}>
         <HStack gap={5}>
-          <Text color="#000">CMS admin name</Text>
+          <Text fontSize={'16px'} color="#000">
+            CMS admin name
+          </Text>
           <Menu>
             <MenuButton
               as={IconButton}

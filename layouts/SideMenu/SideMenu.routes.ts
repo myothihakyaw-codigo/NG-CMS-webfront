@@ -12,10 +12,14 @@ export const sideMenuRoutes: Array<IMenuItem> = [
   },
   {
     name: 'Account management',
-    route: '/account',
+    route: '/accounts',
   },
   {
     name: 'Career',
     route: '/career',
+  },
+  {
+    name: 'Press',
+    route: '/press',
   },
 ]

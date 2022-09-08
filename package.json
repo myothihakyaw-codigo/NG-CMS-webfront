@@ -9,10 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.0.9",
     "@chakra-ui/react": "^2.3.1",
     "@emotion/react": "^11",
     "@emotion/server": "^11.10.0",
     "@emotion/styled": "^11",
+    "@fontsource/lato": "^4.5.9",
     "@hookform/resolvers": "^2.8.8",
     "@mantine/hooks": "^5.2.3",
     "@mantine/next": "^5.2.3",

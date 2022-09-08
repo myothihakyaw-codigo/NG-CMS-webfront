@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import React, { RefObject, useRef } from 'react'
 import { Box, Divider } from '@chakra-ui/react'
-import Text from 'components/Text'
+import Text from 'components/Typography/Text'
 import Link from 'next/link'
 import { IMenuItem } from './SideMenu.types'
 import { useState, useEffect } from 'react'
@@ -15,8 +15,20 @@ const MenuItem: React.FC<Props> = ({ name, route, isActive }) => {
   const sideMenuItemRef: RefObject<HTMLDivElement> = useRef(null)
 
   return (
-    // FIX: it would be better to use with Fade component in Chakra UI
-    <Box ref={sideMenuItemRef} position={'relative'} borderBottom={'1px solid #000'} marginBottom={'-1px'} width="100%">
+    // FIX: it would be better to use with Fade component in Chakra UI for toggle nav pointer
+    <Box
+      ref={sideMenuItemRef}
+      position={'relative'}
+      borderBottom={'1px solid #515151'}
+      _after={{
+        content: `''`,
+        display: 'block',
+        paddingBottom: '1.8px',
+        borderBottom: '1.8px solid #000',
+      }}
+      marginBottom={'-1px'}
+      width="100%"
+    >
       <Box
         transition="all 0.1s linear"
         width={isActive ? '17px' : '0px'}
@@ -28,11 +40,9 @@ const MenuItem: React.FC<Props> = ({ name, route, isActive }) => {
         zIndex={300}
       />
       <Link href={route}>
-        <Box padding="35px">
+        <Box padding="25px 35px">
           {' '}
-          <Text size="md" color="white">
-            {name}
-          </Text>{' '}
+          <Text color="white">{name}</Text>{' '}
         </Box>
       </Link>
     </Box>
