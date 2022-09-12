@@ -10,18 +10,13 @@ import {
   MenuButton,
   IconButton,
   MenuDivider,
-  useMediaQuery,
-  useBreakpointValue,
-  useBreakpoint,
 } from '@chakra-ui/react'
 import Text from '../../components/Typography/Text'
 import { CMSLogo, NeuroGleeLogo, DownArrowSVG } from 'icons/HeaderIcons'
-import { useEffect, useState } from 'react'
-import { useViewportSize } from '@mantine/hooks'
+import Link from 'next/link'
 
 const Header: React.FC = () => {
-  const [isSmallerThan1360] = useMediaQuery(`(max-width: 1400px)`)
-  const [sideMenuWidth, setSideMenuWidth] = useState('17vw')
+  // FIX: need to Re Layout the header left side
   return (
     <Flex direction="row" alignItems="center" bgColor="#fff" borderBottom={'0.5px solid #E0E0E0'}>
       <Box padding="25px 30px" bgColor="#F1F1F1" width={`17vw`}>
@@ -40,7 +35,7 @@ const Header: React.FC = () => {
         </HStack>
       </Box>
       <Flex justifyContent={'flex-end'} alignItems="center" width="83vw" height="100%" paddingRight={'70px'}>
-        <HStack gap={5}>
+        <Box display="flex" gap="10px" alignItems="center">
           <Text fontSize={'16px'} color="#000">
             CMS admin name
           </Text>
@@ -60,18 +55,28 @@ const Header: React.FC = () => {
               _active={{
                 backgroundColor: '#053463',
               }}
+              margin="0px !important"
             />
-            <MenuList zIndex={200} bgColor="#fff" boxShadow={' 0px 4px 4px rgba(0, 0, 0, 0.1)'} borderRadius="10px">
-              <MenuItem p={6}>
-                <Text>Account Settings</Text>
+            <MenuList
+              width="180px"
+              zIndex={200}
+              bgColor="#fff"
+              boxShadow={' 0px 4px 4px rgba(0, 0, 0, 0.1)'}
+              borderRadius="10px"
+              padding="10px"
+            >
+              <MenuItem padding={'10px 0'}>
+                <Link href="/dashboard/account-settings">
+                  <Text>Account Settings</Text>
+                </Link>
               </MenuItem>
               <MenuDivider borderColor={'gray.400'} />
-              <MenuItem p={6}>
+              <MenuItem padding={'10px 0'}>
                 <Text color="#37A2FE">Log Out</Text>
               </MenuItem>
             </MenuList>
           </Menu>
-        </HStack>
+        </Box>
       </Flex>
     </Flex>
   )
