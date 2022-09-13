@@ -1,67 +1,60 @@
-import Spinner from 'components/Spinner'
-import Link from 'next/link'
-import { ButtonHTMLAttributes, createElement, ReactNode, Ref } from 'react'
-import { ElementState } from 'types'
-import { cssvars } from 'utils'
-import styles from './Button.module.scss'
+import React, { MouseEvent } from 'react'
+import { Button, Spinner } from '@chakra-ui/react'
+import Text from 'components/Typography/Text'
+import { useRouter } from 'next/router'
 
-type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
-  $ref?: Ref<HTMLButtonElement>
-  size?: false | '' | 'sm' | 'xs'
-  href?: string
-  icon?: ReactNode
+interface IBaseButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  title?: string
+  isLoading?: boolean
+  loadingIcon?: React.ReactElement
+  theme?: 'danger' | 'info'
   color?: string
-  label?: ReactNode
-  state?: ElementState
-  inline?: boolean
-  variant?: 'text' | 'primary' | 'secondary' | 'transparent'
+  size?: 'xs' | 'sm' | 'md' | 'lg'
 }
 
-const Root = ({ href, children }: { href?: string; children: ReactNode }) => {
-  return !!href ? <Link href={href}>{children}</Link> : <>{children}</>
-}
-
-const Button = ({
-  $ref,
-  icon,
-  href,
-  size,
-  color,
-  label = '',
-  state = '',
-  inline = true,
-  variant = 'primary',
-  className,
-  onClick,
-  ...rest
-}: Props) => {
-  const handleClick = (e: any) => state === '' && onClick && onClick(e)
-
+export const BaseButton: React.FC<IBaseButton> = ({
+  isLoading,
+  title = 'save',
+  loadingIcon = null,
+  size = 'md',
+  color = '#0080FF',
+  theme,
+}) => {
   return (
-    <Root href={href}>
-      {createElement(
-        href ? 'a' : 'button',
-        {
-          ref: $ref,
-          type: 'button',
-          style: cssvars({ color }),
-          disabled: state === 'disable',
-          className: `${styles.root} ${styles[variant]} ${styles[size || '']} ${styles[state || '']} 
-                      ${inline && styles.inline} ${className}`,
-          onClick: handleClick,
-          ...rest,
-        },
-        state === 'loading' ? (
-          <Spinner color="currentColor" />
-        ) : (
-          <>
-            {icon}
-            {!!label && <span className={styles.label}>{label}</span>}
-          </>
-        )
-      )}
-    </Root>
+    <Button
+      size={size}
+      padding="10"
+      borderRadius={'32px'}
+      width={'180px'}
+      bgColor={color}
+      isLoading={isLoading}
+      _hover={{
+        bgColor: '#016ad2',
+      }}
+      spinner={loadingIcon ? loadingIcon : <Spinner size={'md'} />}
+    >
+      <Text color={'#fff'}>{title}</Text>
+    </Button>
   )
 }
 
-export default Button
+export const OutlineButton: React.FC<IBaseButton> = ({
+  isLoading,
+  title = 'save',
+  loadingIcon = null,
+  size = 'md',
+  color = '0080FF',
+  theme,
+}) => {
+  return (
+    <Button
+      size={size}
+      variant={'outline'}
+      colorScheme={'red'}
+      isLoading={isLoading}
+      spinner={loadingIcon ? loadingIcon : <Spinner size={'md'} />}
+    >
+      <Text color={'#fff'}>{title}</Text>
+    </Button>
+  )
+}

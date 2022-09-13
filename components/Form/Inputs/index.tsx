@@ -9,6 +9,7 @@ import type { Addon, BaseProp, InputBoxBaseProps } from '../types'
 import styles from './Inputs.module.scss'
 import codes from 'country-calling-code'
 import ScrollArea from 'components/ScrollArea'
+import { Input as BaseInput } from '@chakra-ui/react'
 
 type Props = InputBoxBaseProps &
   BaseProp & {
@@ -29,27 +30,20 @@ export const Input = ({ type = 'text', state, label, variant, prefix, postfix, p
   return (
     <Fieldset {...rest}>
       {({ name, message, value, onChange, onKeyPress }) => (
-        <InputBox
-          state={state}
+        <BaseInput
+          width={'381px'}
+          border="1px solid rgba(0, 0, 0, 0.1)"
+          height={'60px'}
+          name={name}
+          id={name}
+          type={type}
           value={value}
-          label={label}
-          variant={variant}
-          prefix={prefix}
-          postfix={postfix}
-          message={message}
-          onChange={onChange}
-        >
-          <input
-            id={name}
-            type={type}
-            value={value}
-            disabled={state === 'disable'}
-            className="input"
-            placeholder={placeholder}
-            onChange={e => onChange(e.target.value)}
-            onKeyPress={onKeyPress}
-          />
-        </InputBox>
+          disabled={state === 'disable'}
+          className="input"
+          placeholder={placeholder}
+          onChange={e => onChange(e.target.value)}
+          fontSize="16px"
+        />
       )}
     </Fieldset>
   )

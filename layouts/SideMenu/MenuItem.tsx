@@ -33,7 +33,7 @@ const MenuItem: React.FC<Props> = ({ name, route, isActive }) => {
         transition="all 0.1s linear"
         width={isActive ? '17px' : '0px'}
         height={'100%'}
-        bgColor="#FFBC3E"
+        bgColor="#fbb738"
         position={'absolute'}
         left="0"
         top={0}

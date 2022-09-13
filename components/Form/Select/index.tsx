@@ -4,6 +4,7 @@ import RSelect from 'react-select'
 import Fieldset from '../Fieldset'
 import InputBox from '../InputBox'
 import type { BaseProp, InputBoxBaseProps, Option } from '../types'
+import { Select as BaseSelect } from '@chakra-ui/react'
 import styles from './Select.module.scss'
 
 type Props = InputBoxBaseProps &
@@ -32,44 +33,51 @@ const Select = ({
   return (
     <Fieldset {...rest}>
       {({ name, value, onChange }) => (
-        <InputBox
-          state={state}
-          label={label}
-          value={value}
-          variant={variant}
-          postfix={() => (
-            <DropdownIcon
-              style={{
-                transform: `rotate(${isOpen ? 180 : 0}deg)`,
-                transition: 'all 0.25s linear',
-                pointerEvents: isOpen ? 'none' : 'auto',
-              }}
-              onClick={() => ref.current?.click()}
-            />
-          )}
-          onChange={onChange}
-        >
-          <RSelect
-            value={options.filter(option => value === option.value)}
-            inputId={name}
-            options={options}
-            isMulti={multiple}
-            isSearchable={isSearchable}
-            isDisabled={state === 'disable'}
-            placeholder={placeholder}
-            className={`${styles.root}  ${styles[variant]} select`}
-            components={{ DropdownIndicator: () => <i ref={ref} /> }}
-            classNamePrefix="react-select"
-            openMenuOnFocus={true}
-            onChange={(option: any) => {
-              !multiple
-                ? onChange(option.value)
-                : onChange(option.length > 0 ? option.map((option: Option) => option.value) : undefined)
-            }}
-            onMenuOpen={() => setOpen(true)}
-            onMenuClose={() => setOpen(false)}
-          />
-        </InputBox>
+        <BaseSelect width={'100%'} placeholder={placeholder}>
+          {options?.map((opt, idx) => (
+            <option key={idx} value={opt?.value}>
+              {opt?.label}
+            </option>
+          ))}
+        </BaseSelect>
+        // <InputBox
+        //   state={state}
+        //   label={label}
+        //   value={value}
+        //   variant={variant}
+        //   postfix={() => (
+        //     <DropdownIcon
+        //       style={{
+        //         transform: `rotate(${isOpen ? 180 : 0}deg)`,
+        //         transition: 'all 0.25s linear',
+        //         pointerEvents: isOpen ? 'none' : 'auto',
+        //       }}
+        //       onClick={() => ref.current?.click()}
+        //     />
+        //   )}
+        //   onChange={onChange}
+        // >
+        //   <RSelect
+        //     value={options.filter(option => value === option.value)}
+        //     inputId={name}
+        //     options={options}
+        //     isMulti={multiple}
+        //     isSearchable={isSearchable}
+        //     isDisabled={state === 'disable'}
+        //     placeholder={placeholder}
+        //     className={`${styles.root}  ${styles[variant]} select`}
+        //     components={{ DropdownIndicator: () => <i ref={ref} /> }}
+        //     classNamePrefix="react-select"
+        //     openMenuOnFocus={true}
+        //     onChange={(option: any) => {
+        //       !multiple
+        //         ? onChange(option.value)
+        //         : onChange(option.length > 0 ? option.map((option: Option) => option.value) : undefined)
+        //     }}
+        //     onMenuOpen={() => setOpen(true)}
+        //     onMenuClose={() => setOpen(false)}
+        //   />
+        // </InputBox>
       )}
     </Fieldset>
   )

@@ -1,5 +1,5 @@
 import { useRecoilValue } from 'recoil'
-import { tokenState } from 'states'
+import { tokenState } from 'states/recoilStates'
 import { Request } from 'types/Api'
 
 import api from 'utils/api'

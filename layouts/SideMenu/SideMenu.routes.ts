@@ -8,7 +8,7 @@ import { IMenuItem } from './SideMenu.types'
 export const sideMenuRoutes: Array<IMenuItem> = [
   {
     name: 'Dashboard',
-    route: '/dashboard',
+    route: '/dashboard', // You can also sub Routes by assigning subRoute object
   },
   {
     name: 'Account management',

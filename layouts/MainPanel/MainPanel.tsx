@@ -16,7 +16,7 @@ const MainPanel: React.FC<IProps> = ({ children }) => {
   return (
     <HStack alignItems={'flex-start'} width={'100%'} marginTop="0px !important" overflow={'hidden'}>
       <SideMenu />
-      <Box width={'100%'} height="100%" overflow="scroll">
+      <Box marginInlineStart={'0px !important'} width={'100%'} height="100%" overflow="scroll">
         {children}
       </Box>
     </HStack>

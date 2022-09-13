@@ -1,4 +1,4 @@
-import { extendTheme } from '@chakra-ui/react'
+import { extendTheme, Theme } from '@chakra-ui/react'
 
 /** INFO: Here you can customize the global theme setting for Chakra UI */
 const theme = extendTheme({
